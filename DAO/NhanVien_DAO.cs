@@ -42,7 +42,7 @@ n.macv = c.macv";
         //Tìm nhân viên theo mã
         public static List<NhanVien_DTO> TimNhanVienTheoMa(string ma)
         {
-            string sTruyVan = string.Format(@"select * from nhanvien where manv like '%{0}%'", ma);
+            string sTruyVan = string.Format(@"select * from nhanvien,chucvu where manv like '%{0}%' and nhanvien.macv = chucvu.macv", ma);
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)
@@ -59,6 +59,7 @@ n.macv = c.macv";
                 nv.Phai = dt.Rows[i]["phai"].ToString();
                 nv.Ngaysinh = (DateTime)dt.Rows[i]["ngaysinh"];
                 nv.Macv = dt.Rows[i]["macv"].ToString();
+                nv.Tencv = dt.Rows[i]["tencv"].ToString();
                 lstNhanVien.Add(nv);
             }
             conn.Close();
@@ -69,7 +70,7 @@ n.macv = c.macv";
         //Tìm nhân viên theo tên
         public static List<NhanVien_DTO> TimNhanVienTheoTen(string ten)
         {
-            string sTruyVan = string.Format(@"select * from nhanvien where tennv like '%{0}%' ", ten);
+            string sTruyVan = string.Format(@"select * from nhanvien,chucvu where tennv like '%{0}%' and chucvu.macv = nhanvien.macv", ten);
             conn = DataProvider.Connect();
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)
@@ -86,6 +87,7 @@ n.macv = c.macv";
                 nv.Phai = dt.Rows[i]["phai"].ToString();
                 nv.Ngaysinh = (DateTime)dt.Rows[i]["ngaysinh"];
                 nv.Macv = dt.Rows[i]["macv"].ToString();
+                nv.Tencv = dt.Rows[i]["tencv"].ToString();
                 lstNhanVien.Add(nv);
             }
             conn.Close();
@@ -95,7 +97,7 @@ n.macv = c.macv";
         //Tìm nhân viên theo họ và tên
         public static List<NhanVien_DTO> TimNhanVienTheoHoTen(string holot, string ten)
         {
-            string sTruyVan = string.Format(@"select * from nhanvien where holot like N'%{0}%' and tennv like N'%{1}%'", holot, ten);
+            string sTruyVan = string.Format(@"select * from nhanvien,chucvu where holot like N'%{0}%' and tennv like N'%{1}%' and chucvu.macv = nhanvien.macv", holot, ten);
             DataTable dt = DataProvider.TruyVanLayDuLieu(sTruyVan, conn);
             if (dt.Rows.Count == 0)
             {
@@ -111,6 +113,7 @@ n.macv = c.macv";
                 nv.Phai = dt.Rows[i]["phai"].ToString();
                 nv.Ngaysinh = (DateTime)dt.Rows[i]["ngaysinh"];
                 nv.Macv = dt.Rows[i]["macv"].ToString();
+                nv.Tencv = dt.Rows[i]["tencv"].ToString();
                 lstNhanVien.Add(nv);
             }
             conn.Close();

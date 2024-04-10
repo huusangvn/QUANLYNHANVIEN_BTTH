@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ChucVu_DAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="NguoiDung_DAO.cs" />
     <Compile Include="NhanVien_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuaTrinhLuong_DAO.cs" />

@@ -27,6 +27,14 @@ namespace GUI
         {
             List<ChucVu_DTO> lstChucVu = ChucVu_BUS.LayChucVu();
             dtgvChucVu.DataSource = lstChucVu;
+
+
+            dtgvChucVu.Columns["Macv"].HeaderText = "Mã Chức Vụ";
+            dtgvChucVu.Columns["Tencv"].HeaderText = "Tên chức vụ";
+            dtgvChucVu.Columns["Hsphucap"].HeaderText = "Hệ số phụ cấp";
+            dtgvChucVu.Columns["Macv"].Width = 120;
+            dtgvChucVu.Columns["Tencv"].Width = 120;
+            dtgvChucVu.Columns["Hsphucap"].Width = 120;
         }
     }
 }

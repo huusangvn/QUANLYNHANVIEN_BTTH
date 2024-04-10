@@ -23,6 +23,18 @@ namespace GUI
         {
             List<NhanVien_DTO> lstNhanVien = NhanVien_BUS.LayNhanVien();
             dtgvNhanVien.DataSource = lstNhanVien;
+            dtgvNhanVien.Columns["Manv"].HeaderText = "Mã số";
+            dtgvNhanVien.Columns["Holot"].HeaderText = "Họ và lót";
+            dtgvNhanVien.Columns["Tennv"].HeaderText = "Tên";
+            dtgvNhanVien.Columns["Phai"].HeaderText = "Phái";
+            dtgvNhanVien.Columns["Ngaysinh"].HeaderText = "Ngày sinh";
+            dtgvNhanVien.Columns["Macv"].HeaderText = "Chức vụ";
+            dtgvNhanVien.Columns["Manv"].Width = 60;
+            dtgvNhanVien.Columns["Holot"].Width = 120;
+            dtgvNhanVien.Columns["Tennv"].Width = 50;
+            dtgvNhanVien.Columns["Phai"].Width = 50;
+            dtgvNhanVien.Columns["Ngaysinh"].Width = 80;
+
         }
 
         private void frmNhanVien_Load(object sender, EventArgs e)
@@ -34,6 +46,9 @@ namespace GUI
             cbChucVu.DataSource = lstChucVu;
             cbChucVu.DisplayMember = "Tencv";
             cbChucVu.ValueMember = "Macv";
+
+          
+       
 
             radTimTheoMA.Checked = true;
             radTimTheoTen.Checked = false;
@@ -111,15 +126,11 @@ namespace GUI
             }
             else
             {
-                HienThiDanhSachSinhVien();
                 MessageBox.Show("Đã thêm nhân viên.");
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnTim_Click(object sender, EventArgs e)
         {
@@ -163,14 +174,6 @@ namespace GUI
             }
         }
 
-        private void txtTimHoLot_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTimTen_TextChanged(object sender, EventArgs e)
-        {
-        }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -197,7 +200,6 @@ namespace GUI
 
             if (NhanVien_BUS.XoaNhanVien(nv) == true)
             {
-                HienThiDanhSachSinhVien();
                 MessageBox.Show("Đã xóa nhân viên.");
             }
             else
@@ -231,13 +233,85 @@ namespace GUI
 
             if (NhanVien_BUS.SuaNhanVien(nv) == true)
             {
-                HienThiDanhSachSinhVien();
                 MessageBox.Show("Đã cập nhật thông tin nhân viên.");
             }
             else
             {
                 MessageBox.Show("Không cập nhật được.");
             }
+        }
+
+        private void dNgaySinh_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radNu_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radNam_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtHoLot_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaSo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbChucVu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimHoLot_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimTen_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            txtMaSo.Clear();
+            txtHoLot.Clear();
+            txtTen.Clear();
+            txtTim.Clear();
+            txtTimHoLot.Clear();
+            txtTimTen.Clear();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            HienThiDanhSachSinhVien();
         }
     }
 }
