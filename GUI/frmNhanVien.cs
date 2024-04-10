@@ -19,11 +19,16 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void frmNhanVien_Load(object sender, EventArgs e)
+        public void HienThiDanhSachSinhVien()
         {
             List<NhanVien_DTO> lstNhanVien = NhanVien_BUS.LayNhanVien();
             dtgvNhanVien.DataSource = lstNhanVien;
+        }
 
+        private void frmNhanVien_Load(object sender, EventArgs e)
+        {
+
+            HienThiDanhSachSinhVien();
             // Dữ liệu combobox Chức vụ
             List<ChucVu_DTO> lstChucVu = ChucVu_BUS.LayChucVu();
             cbChucVu.DataSource = lstChucVu;
@@ -67,7 +72,45 @@ namespace GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (txtMaSo.Text == "" || txtHoLot.Text == "" || txtTen.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ dữ liệu!");
 
+                return;
+            }
+            // Kiểm tra mã nhân viên có độ dài chuỗi hợp lệ hay không
+            if (txtMaSo.Text.Length > 5)
+            {
+                MessageBox.Show("Mã nhân viên tối đa 5 ký tự!");
+                return;
+            }
+            // Kiểm tra mã nhân viên có bị trùng không
+            if (NhanVien_BUS.TimNhanVienTheoMa(txtMaSo.Text) != null)
+            {
+                MessageBox.Show("Mã nhân viên đã tồn tại!");
+                return;
+            }
+            NhanVien_DTO nv = new NhanVien_DTO();
+            nv.Manv = txtMaSo.Text;
+            nv.Holot = txtHoLot.Text;
+            nv.Tennv = txtTen.Text;
+            if (radNam.Checked == true)
+            {
+                nv.Phai = "Nam";
+            }
+            else
+            {
+                nv.Phai = "Nữ";
+            }
+            nv.Ngaysinh = DateTime.Parse(dNgaySinh.Text);
+            nv.Macv = cbChucVu.SelectedValue.ToString();
+            if (NhanVien_BUS.ThemNhanVien(nv) == false)
+            {
+                MessageBox.Show("Không thêm được.");
+                return;
+            }
+            HienThiDanhSachSinhVien();
+            MessageBox.Show("Đã thêm nhân viên.");
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -124,6 +167,45 @@ namespace GUI
 
         private void txtTimTen_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            // kiểm tra mã có tồn tại
+            if (txtMaSo.Text == "" || NhanVien_BUS.TimNhanVienTheoMa(txtMaSo.Text) == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã nhân viên!");
+                return;
+            }
+            NhanVien_DTO nv = new NhanVien_DTO();
+            nv.Manv = txtMaSo.Text;
+            nv.Holot = txtHoLot.Text;
+            nv.Tennv = txtTen.Text;
+            if (radNam.Checked == true)
+            {
+                nv.Phai = "Nam";
+            }
+            else
+            {
+                nv.Phai = "Nữ";
+            }
+            nv.Ngaysinh = DateTime.Parse(dNgaySinh.Text);
+            nv.Macv = cbChucVu.SelectedValue.ToString();
+
+            if (NhanVien_BUS.SuaNhanVien(nv) == true)
+            {
+                HienThiDanhSachSinhVien();
+                MessageBox.Show("Đã cập nhật thông tin nhân viên.");
+            }
+            else
+            {
+                MessageBox.Show("Không cập nhật được.");
+            }
         }
     }
 }

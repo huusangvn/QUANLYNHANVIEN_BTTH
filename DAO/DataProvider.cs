@@ -12,7 +12,7 @@ namespace DAO
 
         public static SqlConnection Connect()
         {
-            string strConn = @"Data Source=ADMIN\MSSQLSEVER;Initial Catalog=QLNV;Integrated Security=True";
+            string strConn = @"Data Source=DESKTOP-NF5VIC7;Initial Catalog=QLNV;Integrated Security=True";
             SqlConnection conn = new SqlConnection(strConn);
             conn.Open();
             return conn;

@@ -28,6 +28,24 @@ namespace BUS
         {
             return NhanVien_DAO.TimNhanVienTheoHoTen(holot,tennv);
         }
+
+        // Thêm nhân viên
+        public static bool ThemNhanVien(NhanVien_DTO nv)
+        {
+            return NhanVien_DAO.ThemNhanVien(nv);
+        }
+
+        // Sửa nhân viên
+        public static bool SuaNhanVien(NhanVien_DTO nv)
+        {
+            return NhanVien_DAO.SuaNhanVien(nv);
+        }
+
+        // Xóa nhân viên
+        public static bool XoaNhanVien(NhanVien_DTO nv)
+        {
+            return NhanVien_DAO.XoaNhanVien(nv);
+        }
     }
 }
 

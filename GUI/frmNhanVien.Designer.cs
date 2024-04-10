@@ -46,13 +46,13 @@ namespace GUI
             this.dNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTimTen = new System.Windows.Forms.TextBox();
+            this.txtTimHoLot = new System.Windows.Forms.TextBox();
+            this.radTimTheoHoTen = new System.Windows.Forms.RadioButton();
+            this.radTimTheoTen = new System.Windows.Forms.RadioButton();
+            this.radTimTheoMA = new System.Windows.Forms.RadioButton();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
-            this.radTimTheoMA = new System.Windows.Forms.RadioButton();
-            this.radTimTheoTen = new System.Windows.Forms.RadioButton();
-            this.radTimTheoHoTen = new System.Windows.Forms.RadioButton();
-            this.txtTimHoLot = new System.Windows.Forms.TextBox();
-            this.txtTimTen = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNhanVien)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -148,6 +148,7 @@ namespace GUI
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
@@ -158,6 +159,7 @@ namespace GUI
             this.btnSua.TabIndex = 4;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // radNam
             // 
@@ -225,6 +227,55 @@ namespace GUI
             this.groupBox1.Text = "Tìm nhân viên";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtTimTen
+            // 
+            this.txtTimTen.Location = new System.Drawing.Point(342, 106);
+            this.txtTimTen.Name = "txtTimTen";
+            this.txtTimTen.Size = new System.Drawing.Size(100, 22);
+            this.txtTimTen.TabIndex = 8;
+            this.txtTimTen.TextChanged += new System.EventHandler(this.txtTimTen_TextChanged);
+            // 
+            // txtTimHoLot
+            // 
+            this.txtTimHoLot.Location = new System.Drawing.Point(17, 106);
+            this.txtTimHoLot.Name = "txtTimHoLot";
+            this.txtTimHoLot.Size = new System.Drawing.Size(296, 22);
+            this.txtTimHoLot.TabIndex = 7;
+            this.txtTimHoLot.TextChanged += new System.EventHandler(this.txtTimHoLot_TextChanged);
+            // 
+            // radTimTheoHoTen
+            // 
+            this.radTimTheoHoTen.AutoSize = true;
+            this.radTimTheoHoTen.Location = new System.Drawing.Point(50, 79);
+            this.radTimTheoHoTen.Name = "radTimTheoHoTen";
+            this.radTimTheoHoTen.Size = new System.Drawing.Size(140, 21);
+            this.radTimTheoHoTen.TabIndex = 6;
+            this.radTimTheoHoTen.TabStop = true;
+            this.radTimTheoHoTen.Text = "Tìm Theo Họ Tên";
+            this.radTimTheoHoTen.UseVisualStyleBackColor = true;
+            // 
+            // radTimTheoTen
+            // 
+            this.radTimTheoTen.AutoSize = true;
+            this.radTimTheoTen.Location = new System.Drawing.Point(50, 53);
+            this.radTimTheoTen.Name = "radTimTheoTen";
+            this.radTimTheoTen.Size = new System.Drawing.Size(118, 21);
+            this.radTimTheoTen.TabIndex = 6;
+            this.radTimTheoTen.TabStop = true;
+            this.radTimTheoTen.Text = "Tìm Theo Tên";
+            this.radTimTheoTen.UseVisualStyleBackColor = true;
+            // 
+            // radTimTheoMA
+            // 
+            this.radTimTheoMA.AutoSize = true;
+            this.radTimTheoMA.Location = new System.Drawing.Point(50, 21);
+            this.radTimTheoMA.Name = "radTimTheoMA";
+            this.radTimTheoMA.Size = new System.Drawing.Size(112, 21);
+            this.radTimTheoMA.TabIndex = 6;
+            this.radTimTheoMA.TabStop = true;
+            this.radTimTheoMA.Text = "Tìm Theo Mã";
+            this.radTimTheoMA.UseVisualStyleBackColor = true;
+            // 
             // txtTim
             // 
             this.txtTim.Location = new System.Drawing.Point(200, 38);
@@ -243,55 +294,6 @@ namespace GUI
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // radTimTheoMA
-            // 
-            this.radTimTheoMA.AutoSize = true;
-            this.radTimTheoMA.Location = new System.Drawing.Point(50, 21);
-            this.radTimTheoMA.Name = "radTimTheoMA";
-            this.radTimTheoMA.Size = new System.Drawing.Size(112, 21);
-            this.radTimTheoMA.TabIndex = 6;
-            this.radTimTheoMA.TabStop = true;
-            this.radTimTheoMA.Text = "Tìm Theo Mã";
-            this.radTimTheoMA.UseVisualStyleBackColor = true;
-            // 
-            // radTimTheoTen
-            // 
-            this.radTimTheoTen.AutoSize = true;
-            this.radTimTheoTen.Location = new System.Drawing.Point(50, 53);
-            this.radTimTheoTen.Name = "radTimTheoTen";
-            this.radTimTheoTen.Size = new System.Drawing.Size(118, 21);
-            this.radTimTheoTen.TabIndex = 6;
-            this.radTimTheoTen.TabStop = true;
-            this.radTimTheoTen.Text = "Tìm Theo Tên";
-            this.radTimTheoTen.UseVisualStyleBackColor = true;
-            // 
-            // radTimTheoHoTen
-            // 
-            this.radTimTheoHoTen.AutoSize = true;
-            this.radTimTheoHoTen.Location = new System.Drawing.Point(50, 79);
-            this.radTimTheoHoTen.Name = "radTimTheoHoTen";
-            this.radTimTheoHoTen.Size = new System.Drawing.Size(140, 21);
-            this.radTimTheoHoTen.TabIndex = 6;
-            this.radTimTheoHoTen.TabStop = true;
-            this.radTimTheoHoTen.Text = "Tìm Theo Họ Tên";
-            this.radTimTheoHoTen.UseVisualStyleBackColor = true;
-            // 
-            // txtTimHoLot
-            // 
-            this.txtTimHoLot.Location = new System.Drawing.Point(17, 106);
-            this.txtTimHoLot.Name = "txtTimHoLot";
-            this.txtTimHoLot.Size = new System.Drawing.Size(296, 22);
-            this.txtTimHoLot.TabIndex = 7;
-            this.txtTimHoLot.TextChanged += new System.EventHandler(this.txtTimHoLot_TextChanged);
-            // 
-            // txtTimTen
-            // 
-            this.txtTimTen.Location = new System.Drawing.Point(342, 106);
-            this.txtTimTen.Name = "txtTimTen";
-            this.txtTimTen.Size = new System.Drawing.Size(100, 22);
-            this.txtTimTen.TabIndex = 8;
-            this.txtTimTen.TextChanged += new System.EventHandler(this.txtTimTen_TextChanged);
             // 
             // frmNhanVien
             // 
