@@ -141,5 +141,35 @@ namespace GUI
             bDangNhap = false;
             HienThiMenu();
         }
+
+        private void saoLưuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog saoluuFolder = new FolderBrowserDialog();
+            saoluuFolder.Description = "Chọn thư mục lưu trữ";
+            if (saoluuFolder.ShowDialog() == DialogResult.OK)
+            {
+                string sDuongDan = saoluuFolder.SelectedPath;
+                if (CSDL_BUS.SaoLuu(sDuongDan) == true)
+                    MessageBox.Show("Đã sao lưu dữ liệu vào " + sDuongDan);
+                else
+                    MessageBox.Show("Thao tác không thành công");
+            }
+        }
+
+        private void phụcHồiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog phuchoiFile = new OpenFileDialog();
+            phuchoiFile.Filter = "*.bak|*.bak";
+            phuchoiFile.Title = "Chọn tập tin phục hồi (.bak)";
+            if (phuchoiFile.ShowDialog() == DialogResult.OK &&
+            phuchoiFile.CheckFileExists == true)
+            {
+                string sDuongDan = phuchoiFile.FileName;
+                if (CSDL_BUS.PhucHoi(sDuongDan) == true)
+                    MessageBox.Show("Thành công");
+                else
+                    MessageBox.Show("Thất bại");
+            }
+        }
     }
 }

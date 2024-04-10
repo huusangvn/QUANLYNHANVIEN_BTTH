@@ -33,7 +33,6 @@ namespace GUI
             this.chươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iDangNhap = new System.Windows.Forms.ToolStripMenuItem();
             this.iDangXuat = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iDanhMuc = new System.Windows.Forms.ToolStripMenuItem();
             this.chứcVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +43,10 @@ namespace GUI
             this.giúpĐỡToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtNguoiDung = new System.Windows.Forms.TextBox();
             this.txtThoiDiemDangNhap = new System.Windows.Forms.TextBox();
+            this.hướngDẫnSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dữLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saoLưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phụcHồiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +71,7 @@ namespace GUI
             this.chươngTrìnhToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iDangNhap,
             this.iDangXuat,
-            this.thoátToolStripMenuItem});
+            this.dữLiệuToolStripMenuItem});
             this.chươngTrìnhToolStripMenuItem.Name = "chươngTrìnhToolStripMenuItem";
             this.chươngTrìnhToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
             this.chươngTrìnhToolStripMenuItem.Text = "Chương trình";
@@ -76,23 +79,16 @@ namespace GUI
             // iDangNhap
             // 
             this.iDangNhap.Name = "iDangNhap";
-            this.iDangNhap.Size = new System.Drawing.Size(168, 26);
+            this.iDangNhap.Size = new System.Drawing.Size(224, 26);
             this.iDangNhap.Text = "Đăng Nhập";
             this.iDangNhap.Click += new System.EventHandler(this.đăngNhậpToolStripMenuItem_Click);
             // 
             // iDangXuat
             // 
             this.iDangXuat.Name = "iDangXuat";
-            this.iDangXuat.Size = new System.Drawing.Size(168, 26);
+            this.iDangXuat.Size = new System.Drawing.Size(224, 26);
             this.iDangXuat.Text = "Đăng Xuất";
             this.iDangXuat.Click += new System.EventHandler(this.iDangXuat_Click);
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
-            this.thoátToolStripMenuItem.Text = "Thoát";
-            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
             // iDanhMuc
             // 
@@ -147,6 +143,8 @@ namespace GUI
             // 
             // giúpĐỡToolStripMenuItem
             // 
+            this.giúpĐỡToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hướngDẫnSửDụngToolStripMenuItem});
             this.giúpĐỡToolStripMenuItem.Name = "giúpĐỡToolStripMenuItem";
             this.giúpĐỡToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.giúpĐỡToolStripMenuItem.Text = "Giúp đỡ";
@@ -164,6 +162,35 @@ namespace GUI
             this.txtThoiDiemDangNhap.Name = "txtThoiDiemDangNhap";
             this.txtThoiDiemDangNhap.Size = new System.Drawing.Size(285, 22);
             this.txtThoiDiemDangNhap.TabIndex = 2;
+            // 
+            // hướngDẫnSửDụngToolStripMenuItem
+            // 
+            this.hướngDẫnSửDụngToolStripMenuItem.Name = "hướngDẫnSửDụngToolStripMenuItem";
+            this.hướngDẫnSửDụngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hướngDẫnSửDụngToolStripMenuItem.Text = "Hướng dẫn sử dụng";
+            // 
+            // dữLiệuToolStripMenuItem
+            // 
+            this.dữLiệuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saoLưuToolStripMenuItem,
+            this.phụcHồiToolStripMenuItem});
+            this.dữLiệuToolStripMenuItem.Name = "dữLiệuToolStripMenuItem";
+            this.dữLiệuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dữLiệuToolStripMenuItem.Text = "Dữ Liệu";
+            // 
+            // saoLưuToolStripMenuItem
+            // 
+            this.saoLưuToolStripMenuItem.Name = "saoLưuToolStripMenuItem";
+            this.saoLưuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saoLưuToolStripMenuItem.Text = "Sao Lưu";
+            this.saoLưuToolStripMenuItem.Click += new System.EventHandler(this.saoLưuToolStripMenuItem_Click);
+            // 
+            // phụcHồiToolStripMenuItem
+            // 
+            this.phụcHồiToolStripMenuItem.Name = "phụcHồiToolStripMenuItem";
+            this.phụcHồiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.phụcHồiToolStripMenuItem.Text = "Phục Hồi";
+            this.phụcHồiToolStripMenuItem.Click += new System.EventHandler(this.phụcHồiToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -198,8 +225,11 @@ namespace GUI
         private System.Windows.Forms.ToolStripMenuItem quáTrìnhNângLươngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iDangNhap;
         private System.Windows.Forms.ToolStripMenuItem iDangXuat;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.Windows.Forms.TextBox txtNguoiDung;
         private System.Windows.Forms.TextBox txtThoiDiemDangNhap;
+        private System.Windows.Forms.ToolStripMenuItem dữLiệuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saoLưuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phụcHồiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hướngDẫnSửDụngToolStripMenuItem;
     }
 }
