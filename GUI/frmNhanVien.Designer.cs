@@ -48,6 +48,11 @@ namespace GUI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
+            this.radTimTheoMA = new System.Windows.Forms.RadioButton();
+            this.radTimTheoTen = new System.Windows.Forms.RadioButton();
+            this.radTimTheoHoTen = new System.Windows.Forms.RadioButton();
+            this.txtTimHoLot = new System.Windows.Forms.TextBox();
+            this.txtTimTen = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNhanVien)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,12 +60,12 @@ namespace GUI
             // dtgvNhanVien
             // 
             this.dtgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvNhanVien.Location = new System.Drawing.Point(14, 261);
+            this.dtgvNhanVien.Location = new System.Drawing.Point(12, 350);
             this.dtgvNhanVien.Name = "dtgvNhanVien";
             this.dtgvNhanVien.RowHeadersWidth = 51;
             this.dtgvNhanVien.RowTemplate.Height = 24;
             this.dtgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvNhanVien.Size = new System.Drawing.Size(595, 251);
+            this.dtgvNhanVien.Size = new System.Drawing.Size(595, 319);
             this.dtgvNhanVien.TabIndex = 0;
             this.dtgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvNhanVien_CellContentClick);
             // 
@@ -190,7 +195,7 @@ namespace GUI
             // 
             this.dNgaySinh.Location = new System.Drawing.Point(291, 110);
             this.dNgaySinh.Name = "dNgaySinh";
-            this.dNgaySinh.Size = new System.Drawing.Size(203, 22);
+            this.dNgaySinh.Size = new System.Drawing.Size(190, 22);
             this.dNgaySinh.TabIndex = 6;
             // 
             // label4
@@ -205,11 +210,16 @@ namespace GUI
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTimTen);
+            this.groupBox1.Controls.Add(this.txtTimHoLot);
+            this.groupBox1.Controls.Add(this.radTimTheoHoTen);
+            this.groupBox1.Controls.Add(this.radTimTheoTen);
+            this.groupBox1.Controls.Add(this.radTimTheoMA);
             this.groupBox1.Controls.Add(this.txtTim);
             this.groupBox1.Controls.Add(this.btnTim);
-            this.groupBox1.Location = new System.Drawing.Point(12, 179);
+            this.groupBox1.Location = new System.Drawing.Point(12, 138);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(595, 76);
+            this.groupBox1.Size = new System.Drawing.Size(595, 145);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm nhân viên";
@@ -217,17 +227,16 @@ namespace GUI
             // 
             // txtTim
             // 
-            this.txtTim.Location = new System.Drawing.Point(6, 34);
+            this.txtTim.Location = new System.Drawing.Point(200, 38);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(232, 22);
+            this.txtTim.Size = new System.Drawing.Size(265, 22);
             this.txtTim.TabIndex = 3;
-            this.txtTim.Text = "Nhập tên nhân viên..";
             this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // btnTim
             // 
             this.btnTim.AutoSize = true;
-            this.btnTim.Location = new System.Drawing.Point(506, 29);
+            this.btnTim.Location = new System.Drawing.Point(471, 36);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(75, 27);
             this.btnTim.TabIndex = 4;
@@ -235,11 +244,60 @@ namespace GUI
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
+            // radTimTheoMA
+            // 
+            this.radTimTheoMA.AutoSize = true;
+            this.radTimTheoMA.Location = new System.Drawing.Point(50, 21);
+            this.radTimTheoMA.Name = "radTimTheoMA";
+            this.radTimTheoMA.Size = new System.Drawing.Size(112, 21);
+            this.radTimTheoMA.TabIndex = 6;
+            this.radTimTheoMA.TabStop = true;
+            this.radTimTheoMA.Text = "Tìm Theo Mã";
+            this.radTimTheoMA.UseVisualStyleBackColor = true;
+            // 
+            // radTimTheoTen
+            // 
+            this.radTimTheoTen.AutoSize = true;
+            this.radTimTheoTen.Location = new System.Drawing.Point(50, 53);
+            this.radTimTheoTen.Name = "radTimTheoTen";
+            this.radTimTheoTen.Size = new System.Drawing.Size(118, 21);
+            this.radTimTheoTen.TabIndex = 6;
+            this.radTimTheoTen.TabStop = true;
+            this.radTimTheoTen.Text = "Tìm Theo Tên";
+            this.radTimTheoTen.UseVisualStyleBackColor = true;
+            // 
+            // radTimTheoHoTen
+            // 
+            this.radTimTheoHoTen.AutoSize = true;
+            this.radTimTheoHoTen.Location = new System.Drawing.Point(50, 79);
+            this.radTimTheoHoTen.Name = "radTimTheoHoTen";
+            this.radTimTheoHoTen.Size = new System.Drawing.Size(140, 21);
+            this.radTimTheoHoTen.TabIndex = 6;
+            this.radTimTheoHoTen.TabStop = true;
+            this.radTimTheoHoTen.Text = "Tìm Theo Họ Tên";
+            this.radTimTheoHoTen.UseVisualStyleBackColor = true;
+            // 
+            // txtTimHoLot
+            // 
+            this.txtTimHoLot.Location = new System.Drawing.Point(17, 106);
+            this.txtTimHoLot.Name = "txtTimHoLot";
+            this.txtTimHoLot.Size = new System.Drawing.Size(296, 22);
+            this.txtTimHoLot.TabIndex = 7;
+            this.txtTimHoLot.TextChanged += new System.EventHandler(this.txtTimHoLot_TextChanged);
+            // 
+            // txtTimTen
+            // 
+            this.txtTimTen.Location = new System.Drawing.Point(342, 106);
+            this.txtTimTen.Name = "txtTimTen";
+            this.txtTimTen.Size = new System.Drawing.Size(100, 22);
+            this.txtTimTen.TabIndex = 8;
+            this.txtTimTen.TextChanged += new System.EventHandler(this.txtTimTen_TextChanged);
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 524);
+            this.ClientSize = new System.Drawing.Size(621, 681);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dNgaySinh);
             this.Controls.Add(this.radNu);
@@ -290,5 +348,10 @@ namespace GUI
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Button btnTim;
+        private System.Windows.Forms.RadioButton radTimTheoTen;
+        private System.Windows.Forms.RadioButton radTimTheoMA;
+        private System.Windows.Forms.RadioButton radTimTheoHoTen;
+        private System.Windows.Forms.TextBox txtTimHoLot;
+        private System.Windows.Forms.TextBox txtTimTen;
     }
 }
