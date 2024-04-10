@@ -27,7 +27,7 @@ namespace DAO
                 ChucVu_DTO cv = new ChucVu_DTO();
                 cv.Macv = dt.Rows[i]["macv"].ToString();
                 cv.Tencv = dt.Rows[i]["tencv"].ToString();
-                cv.Hsphucap = (float)dt.Rows[i]["hsphucap"];
+                cv.Hsphucap = float.Parse(dt.Rows[i]["hsphucap"].ToString());
                 lstChucVu.Add(cv);
             }
             conn.Close();

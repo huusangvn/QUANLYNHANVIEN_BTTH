@@ -109,8 +109,11 @@ namespace GUI
                 MessageBox.Show("Không thêm được.");
                 return;
             }
-            HienThiDanhSachSinhVien();
-            MessageBox.Show("Đã thêm nhân viên.");
+            else
+            {
+                HienThiDanhSachSinhVien();
+                MessageBox.Show("Đã thêm nhân viên.");
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -171,7 +174,36 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            // kiểm tra mã có tồn tại
+            if (txtMaSo.Text == "" || NhanVien_BUS.TimNhanVienTheoMa(txtMaSo.Text) == null)
+            {
+                MessageBox.Show("Vui lòng chọn mã nhân viên!");
+                return;
+            }
+            NhanVien_DTO nv = new NhanVien_DTO();
+            nv.Manv = txtMaSo.Text;
+            nv.Holot = txtHoLot.Text;
+            nv.Tennv = txtTen.Text;
+            if (radNam.Checked == true)
+            {
+                nv.Phai = "Nam";
+            }
+            else
+            {
+                nv.Phai = "Nữ";
+            }
+            nv.Ngaysinh = DateTime.Parse(dNgaySinh.Text);
+            nv.Macv = cbChucVu.SelectedValue.ToString();
 
+            if (NhanVien_BUS.XoaNhanVien(nv) == true)
+            {
+                HienThiDanhSachSinhVien();
+                MessageBox.Show("Đã xóa nhân viên.");
+            }
+            else
+            {
+                MessageBox.Show("Không xóa được.");
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)

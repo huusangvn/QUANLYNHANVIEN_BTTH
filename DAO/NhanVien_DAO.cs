@@ -146,6 +146,7 @@ nv.Ngaysinh, nv.Macv);
             string sTruyVan = string.Format(@"delete from nhanvien where manv=N'{0}'", nv.Manv);
             conn = DataProvider.Connect();
             bool kq = DataProvider.TruyVanKhongLayDuLieu(sTruyVan, conn);
+            conn.Close();
             return kq;
         }
     }
